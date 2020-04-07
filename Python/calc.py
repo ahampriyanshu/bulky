@@ -41,11 +41,11 @@ if __name__ == "__main__":
 
     gui = Tk()
 
-    gui.configure(background="light blue")
+    gui.configure(background="white")
 
     gui.title("Python Calculator")
 
-    gui.geometry("335x500")
+    gui.geometry("335x240")
 
     equation = StringVar()
 
@@ -95,44 +95,44 @@ if __name__ == "__main__":
                      command=lambda: press(0), height=2, width=7)
     button0.grid(row=6, column='1')
 
-    plus = Button(gui, text=' + ', fg='white', bg='red',
+    plus = Button(gui, text=' + ', fg='black', bg='yellow',
                   command=lambda: press("+"), height=2, width=7)
     plus.grid(row=2, column=3)
 
-    minus = Button(gui, text=' - ', fg='white', bg='red',
+    minus = Button(gui, text=' - ', fg='black', bg='yellow',
                    command=lambda: press("-"), height=2, width=7)
     minus.grid(row=3, column=3)
 
-    decimal = Button(gui, text=' . ', fg='white', bg='red',
-                     command=lambda: press("."), height=2, width=7)
-    decimal.grid(row=6, column=0)
-
-    doudeci = Button(gui, text=' 00 ', fg='white', bg='red',
-                     command=lambda: press("00"), height=2, width=7)
-    doudeci.grid(row=6, column=2)
-
-    sqrt = Button(gui, text=' % ', fg='white', bg='red',
-                  command=lambda: press("%"), height=2, width=7)
-    sqrt.grid(row=2, column=2)
-
-    multiply = Button(gui, text=' * ', fg='white', bg='red',
+    multiply = Button(gui, text=' * ', fg='black', bg='yellow',
                       command=lambda: press("*"), height=2, width=7)
     multiply.grid(row=4, column=3)
 
-    divide = Button(gui, text=' / ', fg='white', bg='red',
+    divide = Button(gui, text=' / ', fg='black', bg='yellow',
                     command=lambda: press("/"), height=2, width=7)
     divide.grid(row=5, column=3)
 
-    equal = Button(gui, text=' = ', fg='white', bg='red',
+    equal = Button(gui, text=' = ', fg='black', bg='yellow',
                    command=equalpress, height=2, width=7)
     equal.grid(row=6, column=3)
 
-    clear = Button(gui, text='Clear', fg='white', bg='red',
+    clear = Button(gui, text='Clear', fg='black', bg='yellow',
                    command=clear, height=2, width=7)
     clear.grid(row=2, column=0)
 
-    delete = Button(gui, text='del', fg='white', bg='red',
-                    command='\b', height=2, width=7)
-    delete.grid(row=2, column=1)
+    off = Button(gui, text='OFF', fg='black', bg='yellow',
+                 command=exit, height=2, width=7)
+    off.grid(row=2, column=1)
+
+    decimal = Button(gui, text=' . ', fg='black', bg='pink',
+                     command=lambda: press("."), height=2, width=7)
+    decimal.grid(row=6, column=0)
+
+    doubzero = Button(gui, text=' 00 ', fg='black', bg='pink',
+                      command=lambda: press("00"), height=2, width=7)
+    doubzero.grid(row=6, column=2)
+
+    percentage = Button(gui, text=' % ', fg='black', bg='yellow',
+                        command=lambda: press("%"), height=2, width=7)
+    percentage.grid(row=2, column=2)
 
     gui.mainloop()
