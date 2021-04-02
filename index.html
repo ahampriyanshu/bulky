@@ -1,256 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Bulky</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Create high quality PDF certificates in bulk" />
+    <meta name="keywords" content="pdf,certificate,csv" />
     <meta name="author" content="ahampriyanshu" />
 
- 
-    <link
-      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    
-    <link
-      href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
-      rel="stylesheet"
-    />
- 
+
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
+
     <style>
-      @import url("https://rsms.me/inter/inter.css");
-      html {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-          "Noto Color Emoji";
-      }
+        @import url("https://rsms.me/inter/inter.css");
 
-      .gradient {
-        background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
-      }
+        html {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+                "Noto Color Emoji";
+        }
 
-      button,
-      .gradient2 {
-        background-color: #f39f86;
-        background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
-      }
+        .gradient {
+            background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+        }
 
-  .check input:invalid {
-      border-color: red;
-  }
+        button,
+        .gradient2 {
+            background-color: #f39f86;
+            background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+        }
 
-  .label-floating input:not(:placeholder-shown),
-  .label-floating textarea:not(:placeholder-shown) {
-      padding-top: 1.4rem;
-  }
-  .label-floating input:not(:placeholder-shown) ~ label,
-  .label-floating textarea:not(:placeholder-shown) ~ label {
-      font-size: 0.8rem;
-      transition: all 0.2s ease-in-out;
-      color: #1f9d55;
-      opacity: 1;
-  }
+        .check input:invalid {
+            border-color: red;
+        }
 
+        .label-floating input:not(:placeholder-shown),
+        .label-floating textarea:not(:placeholder-shown) {
+            padding-top: 1.4rem;
+        }
+
+        .label-floating input:not(:placeholder-shown)~label,
+        .label-floating textarea:not(:placeholder-shown)~label {
+            font-size: 0.8rem;
+            transition: all 0.2s ease-in-out;
+            color: #1f9d55;
+            opacity: 1;
+        }
     </style>
-  </head>
+</head>
 
-  <body class="leading-relaxed tracking-wide flex flex-col">
-    <!--Nav-->
-    <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
-      <div
-        class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
-      >
-        <div class="pl-4 flex items-center">
-          <a
-            class="text-orange-500 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-            href="#"
-          >
-            Bulky
-          </a>
-        </div>
+<body class="leading-relaxed tracking-wide flex flex-col">
 
-        <div class="block lg:hidden pr-4">
-          <button
-            id="nav-toggle"
-            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none"
-          >
-            <svg
-              class="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
-        </div>
 
-        <div
-          class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
-          id="nav-content"
-        >
-          <ul class="list-reset lg:flex justify-end flex-1 items-center">
-            <li class="mr-3">
-              <a
-                class="inline-block py-2 px-4 text-black font-bold no-underline"
-                href="/"
-                >Home</a
-              >
-            </li>
-            <li class="mr-3">
-              <a
-                class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
-                >Contact</a
-              >
-            </li>
-          </ul>
-          <button
-            id="navAction"
-            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75"
-          >
-            GitHub
-          </button>
-        </div>
-      </div>
-    </nav>
+
+    <a href="index.html" class="flex justify-center p-4 md:p-0 mt-10 md:mt-4">
+        <img class="rounded-full gokemon" height="256" width="256" src="img/logo.png" alt="GokemonLogo" />
+    </a>
+
 
     <div class="container mx-auto">
-      <div class="text-center px-3 lg:px-0">
-        <h1
-          class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
-        >
-          Create High Quality PDF Certificates in bulk
-        </h1>
 
-        <button
-          class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
-        >
-          Upload CSV
-        </button>
-      </div>
+        <h2 class="w-full my-2 text-xl font-black leading-tight text-center text-gray-800 lg:mt-8">
+            Create High Quality PDF Certificates in bulk
+        </h2>
+
+        <div class="text-center px-3 lg:px-0">
+            <button type="file" id="fileUpload" accept=".csv"
+                class="mx-auto button lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48">
+                Upload CSV
+            </button>
+        </div>
 
     </div>
 
-    <section class="bg-white py-2">
-      <div
-        class="container mx-auto flex flex-wrap items-center justify-between"
-      >
-        <h2
-          class="w-full my-2 text-xl font-black leading-tight text-center text-gray-800 lg:mt-8"
-        >
-        Fill Up the form to see the template
-        </h2>
-        <div class="w-full mb-4">
-          <div
-            class="h-1 mx-auto g lg:mx-0radient w-64 opacity-25 my-0 py-0 rounded-t"
-          ></div>
+    <section class="bg-white">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+
+            <div class="w-full mb-4">
+                <div class="h-1 mx-auto g lg:mx-0radient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
         </div>
-      </div>
     </section>
 
     <section>
-        <form id="contact-me" class="w-full mx-auto max-w-3xl bg-white p-8 text-gray-700 ">
+        <div class="w-full mx-auto max-w-3xl bg-white p-8 text-gray-700 ">
             <div class="flex flex-wrap mb-3">
                 <div class="relative w-full appearance-none label-floating">
-                    <input class="name tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                    name="name" id="name" type="text" placeholder="Your name"required>
-                    <label for="name" class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                        Participant Name
+                    <input
+                        class="name tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="name" id="name" type="text" placeholder="Name of the participant" required>
+                    <label for="name"
+                        class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                        Name of the participant
                     </label>
                 </div>
             </div>
 
             <div class="flex flex-wrap mb-6">
                 <div class="relative w-full appearance-none label-floating">
-                    <input class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="org" type="text" placeholder="Your email"required>
-                    <label for="name" class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                    Name of the Organisation
+                    <input
+                        class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="org" id="org" type="text" placeholder="Name of the Organisation" required>
+                    <label for="org"
+                        class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                        Name of the Organisation
                     </label>
                 </div>
             </div>
 
             <div class="flex flex-wrap mb-6">
                 <div class="relative w-full appearance-none label-floating">
-                    <textarea class="autoexpand tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="contest" type="text" placeholder="Message..."></textarea>
-                        <label for="message" class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                            Contest
+                    <textarea
+                        class="autoexpand tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="contest" id="contest" type="text" placeholder="Event's Detail"></textarea>
+                    <label for="contest"
+                        class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                        Event's Detail
                     </label>
                 </div>
             </div>
-        
+
 
             <div class="flex flex-wrap mb-6">
                 <div class="relative w-full appearance-none label-floating">
-                    <input class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="sign" type="text" placeholder="Your email"required>
-                    <label for="name" class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                        Sign
+                    <input
+                        class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="sign" id="sign" type="text" placeholder="Name of the Organiser" required>
+                    <label for="sign"
+                        class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                        Name of the Organiser
                     </label>
                 </div>
             </div>
-           
+
             <div class="flex flex-wrap mb-6">
                 <div class="relative w-full appearance-none label-floating">
-                    <input class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="designation" type="text" placeholder="Your email"required>
-                    <label for="name" class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                        Designation
+                    <input
+                        class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="designation" id="designation" type="text" placeholder="Designation of the Organiser"
+                        required>
+                    <label for="designation"
+                        class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                        Designation of the Organiser
                     </label>
                 </div>
             </div>
-        
+
             <div class="container mx-auto">
                 <div class="text-center px-3 lg:px-0">
-            <button
-            class="mx-auto  lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
-            id="submitBtn" >
-            Download
-          </button>  
-          </div></div>
-          
-          
+                    <button
+                        class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
+                        id="submitBtn">
+                        Download
+                    </button>
+                </div>
             </div>
-        </form>
+        </div>
+        </div>
     </section>
+
+    <footer>
+        <div class="flex pb-5 px-3 justify-center m-auto text-gray-800 text-sm flex-col
+        md:flex-row max-w-6xl">
+            <div class="flex justify-center mt-4">
+                <a href="https://twitter.com/ahampriyanshu" class="w-6 mx-1">
+                    <svg class="fill-current cursor-pointer text-gray-500 hover:text-blue-400" width="100%"
+                        height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/"
+                        style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+                        <path id="Twitter" d="M24,12c0,6.627 -5.373,12 -12,12c-6.627,0 -12,-5.373 -12,-12c0,-6.627
+                    5.373,-12 12,-12c6.627,0 12,5.373 12,12Zm-6.465,-3.192c-0.379,0.168
+                    -0.786,0.281 -1.213,0.333c0.436,-0.262 0.771,-0.676
+                    0.929,-1.169c-0.408,0.242 -0.86,0.418 -1.341,0.513c-0.385,-0.411
+                    -0.934,-0.667 -1.541,-0.667c-1.167,0 -2.112,0.945 -2.112,2.111c0,0.166
+                    0.018,0.327 0.054,0.482c-1.754,-0.088 -3.31,-0.929
+                    -4.352,-2.206c-0.181,0.311 -0.286,0.674 -0.286,1.061c0,0.733 0.373,1.379
+                    0.94,1.757c-0.346,-0.01 -0.672,-0.106 -0.956,-0.264c-0.001,0.009
+                    -0.001,0.018 -0.001,0.027c0,1.023 0.728,1.877 1.694,2.07c-0.177,0.049
+                    -0.364,0.075 -0.556,0.075c-0.137,0 -0.269,-0.014 -0.397,-0.038c0.268,0.838
+                    1.048,1.449 1.972,1.466c-0.723,0.566 -1.633,0.904 -2.622,0.904c-0.171,0
+                    -0.339,-0.01 -0.504,-0.03c0.934,0.599 2.044,0.949 3.237,0.949c3.883,0
+                    6.007,-3.217 6.007,-6.008c0,-0.091 -0.002,-0.183 -0.006,-0.273c0.413,-0.298
+                    0.771,-0.67 1.054,-1.093Z"></path>
+                    </svg>
+                </a>
+                <a href="http://www.github.com/ahampriyanshu" class="w-6 mx-1">
+                    <svg class="fill-current cursor-pointer text-gray-500 hover:text-black" width="100%" height="100%"
+                        viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/" style="
+            fill-rule: evenodd;
+            clip-rule: evenodd;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+          ">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/ahampriyanshu/" class="w-6 mx-1">
+                    <svg class="fill-current cursor-pointer text-gray-500 hover:text-blue-500" width="100%"
+                        height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/"
+                        style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+                        <path id="Shape" d="M7.3,0.9c1.5,-0.6 3.1,-0.9 4.7,-0.9c1.6,0 3.2,0.3 4.7,0.9c1.5,0.6 2.8,1.5
+                    3.8,2.6c1,1.1 1.9,2.3 2.6,3.8c0.7,1.5 0.9,3 0.9,4.7c0,1.7 -0.3,3.2
+                    -0.9,4.7c-0.6,1.5 -1.5,2.8 -2.6,3.8c-1.1,1 -2.3,1.9 -3.8,2.6c-1.5,0.7
+                    -3.1,0.9 -4.7,0.9c-1.6,0 -3.2,-0.3 -4.7,-0.9c-1.5,-0.6 -2.8,-1.5
+                    -3.8,-2.6c-1,-1.1 -1.9,-2.3 -2.6,-3.8c-0.7,-1.5 -0.9,-3.1 -0.9,-4.7c0,-1.6
+                    0.3,-3.2 0.9,-4.7c0.6,-1.5 1.5,-2.8 2.6,-3.8c1.1,-1 2.3,-1.9
+                    3.8,-2.6Zm-0.3,7.1c0.6,0 1.1,-0.2 1.5,-0.5c0.4,-0.3 0.5,-0.8 0.5,-1.3c0,-0.5
+                    -0.2,-0.9 -0.6,-1.2c-0.4,-0.3 -0.8,-0.5 -1.4,-0.5c-0.6,0 -1.1,0.2
+                    -1.4,0.5c-0.3,0.3 -0.6,0.7 -0.6,1.2c0,0.5 0.2,0.9 0.5,1.3c0.3,0.4 0.9,0.5
+                    1.5,0.5Zm1.5,10l0,-8.5l-3,0l0,8.5l3,0Zm11,0l0,-4.5c0,-1.4 -0.3,-2.5
+                    -0.9,-3.3c-0.6,-0.8 -1.5,-1.2 -2.6,-1.2c-0.6,0 -1.1,0.2 -1.5,0.5c-0.4,0.3
+                    -0.8,0.8 -0.9,1.3l-0.1,-1.3l-3,0l0.1,2l0,6.5l3,0l0,-4.5c0,-0.6 0.1,-1.1
+                    0.4,-1.5c0.3,-0.4 0.6,-0.5 1.1,-0.5c0.5,0 0.9,0.2 1.1,0.5c0.2,0.3 0.4,0.8
+                    0.4,1.5l0,4.5l2.9,0Z"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/ahampriyanshu/" class="w-6 mx-1">
+                    <svg class="fill-current cursor-pointer text-gray-500 hover:text-pink-500" width="100%"
+                        height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/" style="
+            fill-rule: evenodd;
+            clip-rule: evenodd;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+          ">
+                        <path
+                            d="M14.829 6.302c-.738-.034-.96-.04-2.829-.04s-2.09.007-2.828.04c-1.899.087-2.783.986-2.87 2.87-.033.738-.041.959-.041 2.828s.008 2.09.041 2.829c.087 1.879.967 2.783 2.87 2.87.737.033.959.041 2.828.041 1.87 0 2.091-.007 2.829-.041 1.899-.086 2.782-.988 2.87-2.87.033-.738.04-.96.04-2.829s-.007-2.09-.04-2.828c-.088-1.883-.973-2.783-2.87-2.87zm-2.829 9.293c-1.985 0-3.595-1.609-3.595-3.595 0-1.985 1.61-3.594 3.595-3.594s3.595 1.609 3.595 3.594c0 1.985-1.61 3.595-3.595 3.595zm3.737-6.491c-.464 0-.84-.376-.84-.84 0-.464.376-.84.84-.84.464 0 .84.376.84.84 0 .463-.376.84-.84.84zm-1.404 2.896c0 1.289-1.045 2.333-2.333 2.333s-2.333-1.044-2.333-2.333c0-1.289 1.045-2.333 2.333-2.333s2.333 1.044 2.333 2.333zm-2.333-12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.958 14.886c-.115 2.545-1.532 3.955-4.071 4.072-.747.034-.986.042-2.887.042s-2.139-.008-2.886-.042c-2.544-.117-3.955-1.529-4.072-4.072-.034-.746-.042-.985-.042-2.886 0-1.901.008-2.139.042-2.886.117-2.544 1.529-3.955 4.072-4.071.747-.035.985-.043 2.886-.043s2.14.008 2.887.043c2.545.117 3.957 1.532 4.071 4.071.034.747.042.985.042 2.886 0 1.901-.008 2.14-.042 2.886z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <script type="text/javascript">
+
+        if('serviceWorker' in navigator){
+              navigator.serviceWorker.register('sw.js')
+                      .then(reg => console.log('service worker registered', reg))
+                      .catch(err => console.log('service worker not registered', err));
+        }
+        </script> -->
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="js/FileSaver.js"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
     <script src="js/index.js"></script>
     <script>
-      var navMenuDiv = document.getElementById("nav-content");
-      var navMenu = document.getElementById("nav-toggle");
+        var navMenuDiv = document.getElementById("nav-content");
+        var navMenu = document.getElementById("nav-toggle");
 
-      document.onclick = check;
-      function check(e) {
-        var target = (e && e.target) || (event && event.srcElement);
-        if (!checkParent(target, navMenuDiv)) {
-          if (checkParent(target, navMenu)) {
-            if (navMenuDiv.classList.contains("hidden")) {
-              navMenuDiv.classList.remove("hidden");
-            } else {
-              navMenuDiv.classList.add("hidden");
+        document.onclick = check;
+        function check(e) {
+            var target = (e && e.target) || (event && event.srcElement);
+            if (!checkParent(target, navMenuDiv)) {
+                if (checkParent(target, navMenu)) {
+                    if (navMenuDiv.classList.contains("hidden")) {
+                        navMenuDiv.classList.remove("hidden");
+                    } else {
+                        navMenuDiv.classList.add("hidden");
+                    }
+                } else {
+                    navMenuDiv.classList.add("hidden");
+                }
             }
-          } else {
-            navMenuDiv.classList.add("hidden");
-          }
         }
-      }
-      function checkParent(t, elm) {
-        while (t.parentNode) {
-          if (t == elm) {
-            return true;
-          }
-          t = t.parentNode;
+        function checkParent(t, elm) {
+            while (t.parentNode) {
+                if (t == elm) {
+                    return true;
+                }
+                t = t.parentNode;
+            }
+            return false;
         }
-        return false;
-      }
     </script>
-  </body>
+</body>
+
 </html>

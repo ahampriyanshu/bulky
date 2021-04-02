@@ -4,6 +4,9 @@ const contestName = document.getElementById("contest");
 const signName = document.getElementById("sign");
 const designation = document.getElementById("designation");
 const submitBtn = document.getElementById("submitBtn");
+
+// console.log(userName, orgName, contestName, signName, designation);
+
 const { PDFDocument, rgb, degrees } = PDFLib;
 
 const capitalize = (str, lower = false) =>
@@ -25,11 +28,11 @@ submitBtn.addEventListener("click", () => {
   }
 });
 
-
 const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
   const existingPdfBytes = await fetch("asset/sample.pdf").then((res) =>
     res.arrayBuffer()
   );
+
   const pdfDoc = await PDFDocument.load(existingPdfBytes);
   pdfDoc.registerFontkit(fontkit);
 
@@ -49,8 +52,6 @@ const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
   const signTextWidth = RobotoFont.widthOfTextAtSize(valSign, smallTextSize)
   const desTextWidth = RobotoFont.widthOfTextAtSize(valDes, smallTextSize)
   const contestTextWidth = RobotoFont.widthOfTextAtSize(valContest, smallTextSize)
-  console.log(width, height);
-
 
   firstPage.drawText(name, {
     x: (width - nameTextWidth) / 2,
@@ -77,13 +78,13 @@ const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
 
   firstPage.drawText(valSign, {
     x: (width - signTextWidth) / 2,
-    y: 110,
+    y: 120,
     size: smallTextSize,
   });
 
   firstPage.drawText(valDes, {
     x: (width - desTextWidth) / 2,
-    y: 90,
+    y: 95,
     size: smallTextSize,
   });
 

@@ -3,18 +3,8 @@ const dynamicCacheName  = 'site-dynamic-v1';
 const assets = [ 
   './',
   './index.html',
-  './pages/about.html',
-  './pages/fallback.html',
-  './js/jszip.js',
-  './js/jszip.min.js',
-  './js/materialize.js',
-  './js/materialize.min.js',
-  './js/saveAs.js',
-  './js/ui.js',
-  './js/template.js',
-  './css/materialize.css',
-  './css/materialize.min.css',
-  './css/style.css',
+  './js/FileSaver.js',
+  './js/index.js',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ];
@@ -27,7 +17,7 @@ self.addEventListener('install', evt => {
       caches.open(staticCacheName).then(cache => {
         console.log('caching shell assets');
         cache.addAll(assets);
-      })
+      })pages
     );
   });
 //Activating service worker
@@ -68,7 +58,7 @@ self.addEventListener('install', evt => {
         });
       }).catch(() => {
       if(evt.request.url.indexOf('.html') > -1) {
-       return caches.match('./pages/fallback.html');
+       return caches.match('./fallback.html');
       }
       })
     );
