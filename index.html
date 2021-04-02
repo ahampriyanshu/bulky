@@ -9,10 +9,24 @@
     <meta name="description" content="Create high quality PDF certificates in bulk" />
     <meta name="keywords" content="pdf,certificate,csv" />
     <meta name="author" content="ahampriyanshu" />
-
-
+    <link rel="apple-touch-icon" sizes="57x57" href="asset/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="asset/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="asset/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="asset/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="asset/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="asset/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="asset/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="asset/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="asset/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="asset/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/img/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="asset/img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
-
     <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
 
     <style>
@@ -59,22 +73,37 @@
 
 
     <a href="index.html" class="flex justify-center p-4 md:p-0 mt-10 md:mt-4">
-        <img class="rounded-full gokemon" height="256" width="256" src="img/logo.png" alt="GokemonLogo" />
+        <img height="256" width="256" src="asset/img/logo.png" alt="GokemonLogo" />
     </a>
 
 
     <div class="container mx-auto">
 
-        <h2 class="w-full my-2 text-xl font-black leading-tight text-center text-gray-800 lg:mt-8">
+        <!-- <h2 class="w-full my-2 text-xl font-black leading-tight text-center text-gray-800 lg:mt-8">
             Create High Quality PDF Certificates in bulk
-        </h2>
+        </h2> -->
 
-        <div class="text-center px-3 lg:px-0">
-            <button type="file" id="fileUpload" accept=".csv"
-                class="mx-auto button lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48">
+        <!-- <div class="text-center px-3 lg:px-0">
+            <input type="file" id="fileUpload" accept=".csv"
+                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48">
                 Upload CSV
-            </button>
+            </input>
+        </div> -->
+
+        <div class="flex items-center text-gray-800 font-extrabold justify-center bg-grey-lighter mt-4">
+            <label class="w-64 flex flex-col items-center px-4 py-6 gradient2 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:underline">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Upload CSV File</span>
+                <input type="file" class="hidden"  id="fileUpload" accept=".csv"/>
+            </label>
         </div>
+
+        <div class="my-2 flex items-center hover:underline text-gray-800 justify-center bg-grey-lighter">
+        <p>How it works?</p>
+    </div>
+        
 
     </div>
 
@@ -117,14 +146,13 @@
                 <div class="relative w-full appearance-none label-floating">
                     <textarea
                         class="autoexpand tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                        name="contest" id="contest" type="text" placeholder="Event's Detail"></textarea>
+                        name="contest" id="contest" type="text" placeholder="Details of the Event"></textarea>
                     <label for="contest"
                         class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-                        Event's Detail
+                        Details of the Event
                     </label>
                 </div>
             </div>
-
 
             <div class="flex flex-wrap mb-6">
                 <div class="relative w-full appearance-none label-floating">
@@ -254,9 +282,10 @@
         }
         </script> -->
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
-    <script src="js/FileSaver.js"></script>
+    <script src="asset/js/FileSaver.js"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
-    <script src="js/index.js"></script>
+    <script src="asset/js/index.js"></script>
+    <script src="asset/js/jszip.min.js"></script>
     <script>
         var navMenuDiv = document.getElementById("nav-content");
         var navMenu = document.getElementById("nav-toggle");
