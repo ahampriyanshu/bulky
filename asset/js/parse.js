@@ -7,11 +7,9 @@ window.addEventListener("load", function () {
         var reader = new FileReader();
         reader.onload = function (e) {
           var rows = e.target.result.split("\n");
-
           for (var i = 1; i < rows.length; i++) {
-            var arr = [];
             var cells = rows[i].split(",");
-            generatePDF(cells[0], cells[1], cells[2], cells[3], cells[4]);
+            generatePDF(cells[0], cells[1], cells[2], cells[3], cells[4], i);
           }
         }
         reader.readAsText(fileUpload.files[0]);

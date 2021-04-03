@@ -3,13 +3,23 @@ const dynamicCacheName  = 'site-dynamic-v1';
 const assets = [ 
   './',
   './index.html',
-  './js/FileSaver.js',
-  './js/index.js',
+  './asset/js/FileSaver.js',
+  './asset/js/index.js',
+  './asset/js/parse.js',
+  './asset/css/custom-forms.min.css',
+  './asset/css/tailwind.min.css',
+  './asset/css/style.css',
+  'https://rsms.me/inter/inter.css',
+  './favicon.ico',
+'https://unpkg.com/pdf-lib@1.4.0',
+'https://unpkg.com/@pdf-lib/fontkit@0.0.4',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
-  'https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
+  './Roboto-Medium.tff',
+  './asset/sample.png',
+  './asset/sample.csv',
+  './asset/sample.pdf',
+  './asset/fallback.html',
 ];
-
-
 
 self.addEventListener('install', evt => {
     //console.log('service worker is installed successfully ');
@@ -17,7 +27,7 @@ self.addEventListener('install', evt => {
       caches.open(staticCacheName).then(cache => {
         console.log('caching shell assets');
         cache.addAll(assets);
-      })pages
+      })
     );
   });
 //Activating service worker
@@ -58,7 +68,7 @@ self.addEventListener('install', evt => {
         });
       }).catch(() => {
       if(evt.request.url.indexOf('.html') > -1) {
-       return caches.match('./fallback.html');
+       return caches.match('./asset/fallback.html');
       }
       })
     );
