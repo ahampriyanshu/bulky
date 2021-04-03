@@ -28,6 +28,11 @@ submitBtn.addEventListener("click", () => {
   }
 });
 
+function bulkypdf(data) {
+
+  // generatePDF(val, valOrg, valContest,valSign,valDes);
+}
+
 const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
   const existingPdfBytes = await fetch("asset/sample.pdf").then((res) =>
     res.arrayBuffer()
@@ -44,7 +49,7 @@ const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
   const pages = pdfDoc.getPages();
   const firstPage = pages[0];
   const { width, height } = firstPage.getSize()
-  const largeTextSize = 45
+  const largeTextSize = 50
   const mediumTextSize = 30
   const smallTextSize = 15
   const nameTextWidth = RobotoFont.widthOfTextAtSize(name, largeTextSize)
@@ -78,13 +83,13 @@ const generatePDF = async (name, valOrg, valContest,valSign,valDes) => {
 
   firstPage.drawText(valSign, {
     x: (width - signTextWidth) / 2,
-    y: 120,
+    y: 108,
     size: smallTextSize,
   });
 
   firstPage.drawText(valDes, {
     x: (width - desTextWidth) / 2,
-    y: 95,
+    y: 83,
     size: smallTextSize,
   });
 
