@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
           var rows = e.target.result.split("\n");
           for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].split(",");
-            generatePDF(cells[0], cells[1], cells[2], cells[3], cells[4], i);
+            generatePDF(cells[0], cells[1], cells[2], cells[3], cells[4], cells[5], cells[6], i);
           }
         }
         reader.readAsText(fileUpload.files[0]);
