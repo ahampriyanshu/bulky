@@ -33,6 +33,11 @@ const generatePDF = async (participant, organisation, event,sign,designation, se
     res.arrayBuffer()
   );
 
+
+  const pngImageBytes = await fetch("https://user-images.githubusercontent.com/54521023/113497335-b601de80-9520-11eb-8d58-bad58c95cb3c.png").then((res) => res.arrayBuffer())
+  const pngImage = await pdfDoc.embedPng(pngImageBytes)
+  const pngDims = pngImage.scale(0.5)
+
   const RobotoFont = await pdfDoc.embedFont(fontBytes);
   const pages = pdfDoc.getPages();
   const firstPage = pages[0];
@@ -68,6 +73,13 @@ const generatePDF = async (participant, organisation, event,sign,designation, se
     size: smallTextSize,
     color: rgb(0, 0, 0),
   });
+
+  firstPage.drawImage(pngImage, {
+    x: width  / 2 - 75,
+    y: 128 ,
+    width: 150,
+    height: 100,
+  })
 
   firstPage.drawText(sign, {
     x: (width - signTextWidth) / 2,

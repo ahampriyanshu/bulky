@@ -302,20 +302,20 @@
          </div>
  </dialog>
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
 
   if('serviceWorker' in navigator){
         navigator.serviceWorker.register('sw.js')
                 .then(reg => console.log('service worker registered', reg))
                 .catch(err => console.log('service worker not registered', err));
   }
-  </script>
+  </script> -->
+
   <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
   <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
   <script src="asset/js/FileSaver.js"></script>
   <script src="asset/js/index.js"></script>
   <script src="asset/js/parse.js"></script>
-  <script src="sw.js"></script>
   <script>
 
     const file = document.querySelector('#file');
