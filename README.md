@@ -22,7 +22,7 @@
 
 ## How it works
 
-* Upload a .csv file contating **Participant, Organisation, Event, Sign, Designation** ( [click here]() to download demo file )
+* Upload a .csv file contating **Participant, Title,Organisation, Event, Sign, Name, Designation, Layout** ( [click here]() to download demo file )
 * Or fill up [this](https://bulky.vercel.app/#demoForm) form to try a demo instead.
 
 ## Dependencies
