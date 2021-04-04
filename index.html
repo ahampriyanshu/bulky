@@ -103,7 +103,8 @@
   <link href="asset/css/custom-forms.min.css" rel="stylesheet" />
 </head>
 
-<body class="gradient leading-relaxed tracking-wide flex flex-col">
+<body class="leading-relaxed tracking-wide flex flex-col">
+  <upper class="gradient">
   <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
       <div class="block lg:hidden">
@@ -153,6 +154,7 @@
       </div>
     </div>
   </nav>
+
 <section>
   <div class="container mx-auto">
     <div class="text-center px-3 lg:px-0">
@@ -169,7 +171,7 @@
               <input type="file" id="file" accept=".csv" class="file" required />
               <label for="file">
                 Upload CSV File
-                <p class="file-name"></p>
+                <p class="file-name text-center"></p>
               </label>
             </div>
 
@@ -183,15 +185,23 @@
       </div>
       <a href="#demoForm"
         class="inline-block mx-auto lg:mx-0 hover:underline bg-transparent text-gray-600 font-extrabold my-2 md:my-6 py-2 lg:py-4 px-8">
-      Try a demo instead</a>
+      Dowload single PDF instead</a>
     </div>
+  </div>
   </section>
+</upper>
 
   <section class="mx-auto max-w-2xl">
-    <p class="leading-normal text-center text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
-   Choose From a ton of options
-    </p>
-    
+
+    <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
+      <h2 class="w-full my-2 text-2xl lg:text-5xl font-black leading-tight text-center text-gray-800">
+        Sample Layouts
+      </h2>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+    </div>
+
     <div class="shadow-2xl relative">
       <!-- large image on slides -->
       <div class="mySlides hidden">
@@ -284,15 +294,14 @@
     </div>
   </section>
 
-  <section class="bg-white pt-12 mt-24 lg:mt-36">
+  <section>
     <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
-      <h2 class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800 mt-12">
+      <h2 class="w-full my-2 text-2xl lg:text-5xl font-black leading-tight text-center text-gray-800">
         Demo
       </h2>
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
       </div>
-
     </div>
 
     <div id="demoForm" class="w-full mx-auto max-w-3xl bg-white p-8 text-gray-700 ">
@@ -348,8 +357,8 @@
         <div class="relative w-full appearance-none label-floating">
           <input
             class="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-            name="sign" id="sign" type="text" placeholder="Name of the Organiser" required>
-          <label for="sign"
+            name="name" id="name" type="text" placeholder="Name of the Organiser" required>
+          <label for="name"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
             Name of the Organiser
           </label>
@@ -550,7 +559,7 @@
       const [file] = e.target.files;
       const { name: fileName, size } = file;
       const fileSize = (size / 1000).toFixed(2);
-      const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+      const fileNameAndSize = ` ${fileName}  ${fileSize}KB`;
       document.querySelector('.file-name').textContent = fileNameAndSize;
     });
 
