@@ -110,10 +110,24 @@
   <meta name="description" content="Create high quality PDF certificate in bulk" />
   <meta name="keywords" content="pdf,certificate,csv" />
   <meta name="author" content="ahampriyanshu" />
-  <link rel="shortcut-icon" href="./favicon.ico">
-  <link rel="manifest" href="manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="asset/img/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="57x57" href="asset/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="asset/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="asset/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="asset/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="asset/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="asset/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="asset/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="asset/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="asset/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="asset/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="asset/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="asset/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="asset/img/favicon-16x16.png">
+  <link rel="shortcut-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
   <link href="asset/css/style.css" rel="stylesheet" />
   <link href="asset/css/tailwind.min.css" rel="stylesheet" />
   <link href="asset/css/custom-forms.min.css" rel="stylesheet" />
@@ -211,7 +225,7 @@
   <section class="mx-auto max-w-2xl">
 
     <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
-      <h2 class="w-full my-2 text-2xl lg:text-5xl font-black leading-tight text-center text-gray-800">
+      <h2 class="w-full my-2 text-2xl lg:text-3xl font-black leading-tight text-center text-gray-800">
         Sample Layouts
       </h2>
       <div class="w-full mb-4">
@@ -301,9 +315,9 @@
       </div>
 
       <!-- butttons -->
-      <a class="absolute left-0 inset-y-0 flex items-center -mt-64 px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
+      <a class="absolute left-0 inset-y-0 flex items-center px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
         onclick="plusSlides(-1)">❮</a>
-      <a class="absolute right-0 inset-y-0 flex items-center -mt-64 px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
+      <a class="absolute right-0 inset-y-0 flex items-center px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
         onclick="plusSlides(1)">❯</a>
 
       <div class="text-center text-white font-light tracking-wider bg-gray-800 py-2">
@@ -315,8 +329,8 @@
 
   <section>
     <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
-      <h2 class="w-full my-2 text-2xl lg:text-5xl font-black leading-tight text-center text-gray-800">
-        Demo
+      <h2 class="w-full my-2 text-2xl lg:text-3xl font-black leading-tight text-center text-gray-800">
+      Single Form
       </h2>
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -362,7 +376,7 @@
 
       <div class="flex flex-wrap mb-6">
         <div class="relative w-full appearance-none label-floating">
-          <textarea
+          <textarea rows="4"
             class="autoexpand tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
             name="event" id="event" type="text" placeholder="Details of the Event"></textarea>
           <label for="event"
@@ -413,7 +427,7 @@
           <button
             class="mx-auto gradient2 lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
             id="submitBtn">
-            Download
+            Create PDF
           </button>
         </div>
       </div>
@@ -498,15 +512,13 @@
     </div>
   </footer>
 
-  <dialog id="helpModal" class="h-auto w-11/12 md:w-1/2 p-5  bg-white rounded-md ">
-
-    <div class="flex flex-col w-full h-auto ">
-      <div class="flex w-full h-auto =">
-        <div class="flex w-10/12 h-auto py-3 justify-center items-center text-2xl font-bold">
+  <dialog id="helpModal" class=" w-11/12 md:w-1/2 p-5  bg-white rounded-md ">
+    <div class="flex flex-col w-full  ">
+      <div class="flex w-full  =">
+        <div class="flex w-10/12  py-3 justify-center items-center text-2xl font-bold">
           How it works
         </div>
-        <div onclick="document.getElementById('helpModal').close();"
-          class="flex w-1/12 h-auto justify-center cursor-pointer">
+        <div onclick="document.getElementById('helpModal').close();" class="flex w-1/12  justify-center cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -514,30 +526,21 @@
           </svg>
         </div>
       </div>
-      <div class="w-full text-center h-auto py-10 px-2  bg-gray-200 rounded text-gray-500">
-        <p>Upload a .csv file contating <b>Participant, Title,Organisation, Event, Sign, Name, Designation, Layout</b>
-          <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.csv">click here</a> to download
-          demo file.</p>
+      <div class="w-full text-center  py-10 px-2  bg-gray-200 rounded text-gray-500">
+        <p> <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.csv">Click here</a> to download
+          sample .csv file => Enter data in correct sequence => Upload .csv => Download .pdf</p>
         <p>Or fill up <a class="hover:underline text-gray-800 font-extrabold"
-            href="https://bulky.vercel.app/#demoForm">this</a> form to try a demo instead.</p>
+            href="https://bulky.vercel.app/#demoForm">this</a> form to create single pdf instead.</p>
       </div>
-
-
-
-
     </div>
   </dialog>
 
   <script type="text/javascript">
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("sw.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err));
-  });
-}
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('service worker registered', reg))
+        .catch(err => console.log('service worker not registered', err));
+    }
   </script>
 
   <script src="asset/js/pdf-lib@1.4.0"></script>
@@ -548,7 +551,6 @@ if ("serviceWorker" in navigator) {
   <script>
 
 
-    //JS to switch slides and replace text in bar//
     var slideIndex = 1;
     showSlides(slideIndex);
 
