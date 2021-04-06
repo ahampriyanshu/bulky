@@ -19,11 +19,13 @@
 
 ## How it works
 
-* [Click here](https://raw.githubusercontent.com/ahampriyanshu/bulky/master/asset/sample.csv) to download sample .csv file => Enter data in correct sequence => Upload .csv => Download .pdf
+* [Click here](https://raw.githubusercontent.com/ahampriyanshu/bulky/master/asset/sample.xlsx) to download sample .xlsx file => Enter data in correct sequence => Upload .xlsx => Download .pdf
 * Or fill up [this](https://bulky.vercel.app/#demoForm) form to create single pdf instead.
 
 ## Dependencies
 
 * [pdf-lib](https://pdf-lib.js.org/)
-* [FileSaver.js](https://github.com/eligrey/FileSaver.js/)
-* [Tailwindcss](https://tailwindcss.com/)
+* [fileSaver.js](https://github.com/eligrey/FileSaver.js/)
+* [tailwindcss](https://tailwindcss.com/)
+* [tailwindcss](https://tailwindcss.com/)
+* [xlsx.js](https://github.com/SheetJS/sheetjs)

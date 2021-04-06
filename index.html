@@ -108,7 +108,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Bulky</title>
   <meta name="description" content="Create high quality PDF certificate in bulk" />
-  <meta name="keywords" content="pdf,certificate,csv" />
+  <meta name="keywords" content="pdf,certificate,xlsx" />
   <meta name="author" content="ahampriyanshu" />
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="asset/img/ms-icon-144x144.png">
@@ -137,20 +137,13 @@
   <upper class="gradient">
     <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
-        <div class="block lg:hidden">
+
           <div class="pl-4 flex items-center">
             <a class="hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
-              <img height="72" width="72" src="asset/img/logo.png" alt="BulkyLogo" />
+              <img class="w-24 md:w-36" src="asset/img/logo.png" alt="BulkyLogo" />
             </a>
           </div>
-        </div>
-        <div class="hidden lg:block">
-          <div class="pl-4 flex items-center">
-            <a class="hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
-              <img height="128" width="128" src="asset/img/logo.png" alt="BulkyLogo" />
-            </a>
-          </div>
-        </div>
+
         <div class="block lg:hidden pr-4">
           <button id="nav-toggle"
             class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none">
@@ -199,9 +192,9 @@
             <form action="javascript:void(0);">
               <div class="flex items-center font-extrabold justify-center mt-4">
                 <div class="file-input mb-12">
-                  <input type="file" id="file" accept=".csv" class="file" required />
+                  <input type="file" id="file" accept=".xlsx, .xls" class="file" required />
                   <label for="file">
-                    Upload CSV File
+                    Upload XLSX File
                     <p class="file-name text-center"></p>
                   </label>
                 </div>
@@ -345,7 +338,7 @@
             name="participant" id="participant" type="text" placeholder="Name of the participant" required>
           <label for="participant"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Priyanshu Tiwari
+            Jesse Pinkman
           </label>
         </div>
       </div>
@@ -405,7 +398,7 @@
             name="designation" id="designation" type="text" placeholder="Designation of the Organiser" required>
           <label for="designation"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Founder, GMTech
+            Founder, Some Organisation
           </label>
         </div>
       </div>
@@ -527,13 +520,82 @@
         </div>
       </div>
       <div class="w-full text-center  py-10 px-2  bg-gray-200 rounded text-gray-500">
-        <p> <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.csv">Click here</a> to download
-          sample .csv file => Enter data in correct sequence => Upload .csv => Download .pdf</p>
+        <p> <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.xlsx">Click here</a> to download
+          sample .xlsx file => Enter data in correct sequence => Upload .xlsx => Download .pdf</p>
         <p>Or fill up <a class="hover:underline text-gray-800 font-extrabold"
             href="https://bulky.vercel.app/#demoForm">this</a> form to create single pdf instead.</p>
       </div>
     </div>
   </dialog>
+
+  <alert id="alertBox" style="display: none;">
+    <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="modalTitle text-lg leading-6 font-medium text-gray-900">
+                </h3>
+                <div class="mt-2">
+                  <p class="message text-sm text-gray-500">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button onclick="openClose('alertBox', 'Closing Dialog', 'Exiting...')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </alert>
+
+  <alert id="successBox" style="display: none;">
+    <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+  
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+  
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden
+         shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full
+               bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+               <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-width="2" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.393 7.5l-5.643 5.784-2.644-2.506-1.856 1.858 4.5 4.364 7.5-7.643-1.857-1.857z"/></svg>
+              </div>
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="modalTitle text-lg leading-6 font-medium text-gray-900">
+                </h3>
+                <div class="mt-2">
+                  <p class="message text-sm text-gray-500">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button onclick="openClose('successBox', 'Closing Dialog', 'Exiting...')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </alert>
 
   <script type="text/javascript">
     if ('serviceWorker' in navigator) {
@@ -548,79 +610,7 @@
   <script src="asset/js/FileSaver.js"></script>
   <script src="asset/js/index.js"></script>
   <script src="asset/js/parse.js"></script>
-  <script>
-
-
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("description");
-      var captionText = document.getElementById("caption");
-      if (n > slides.length) {
-        slideIndex = 1
-      }
-      if (n < 1) {
-        slideIndex = slides.length
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" opacity-100", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " opacity-100";
-      captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
-
-    const file = document.querySelector('#file');
-    file.addEventListener('change', (e) => {
-      const [file] = e.target.files;
-      const { name: fileName, size } = file;
-      const fileSize = (size / 1000).toFixed(2);
-      const fileNameAndSize = ` ${fileName}  ${fileSize}KB`;
-      document.querySelector('.file-name').textContent = fileNameAndSize;
-    });
-
-    var navMenuDiv = document.getElementById("nav-content");
-    var navMenu = document.getElementById("nav-toggle");
-
-    document.onclick = check;
-    function check(e) {
-      var target = (e && e.target) || (event && event.srcElement);
-      if (!checkParent(target, navMenuDiv)) {
-        if (checkParent(target, navMenu)) {
-          if (navMenuDiv.classList.contains("hidden")) {
-            navMenuDiv.classList.remove("hidden");
-          } else {
-            navMenuDiv.classList.add("hidden");
-          }
-        } else {
-          navMenuDiv.classList.add("hidden");
-        }
-      }
-    }
-    function checkParent(t, elm) {
-      while (t.parentNode) {
-        if (t == elm) {
-          return true;
-        }
-        t = t.parentNode;
-      }
-      return false;
-    }
-  </script>
+  <script src="asset/js/xlsx.full.min.js"></script>>
 </body>
 
 </html>
