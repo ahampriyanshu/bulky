@@ -1,3 +1,5 @@
+var zip = new JSZip();
+
 function openClose(divId, header, msg) {
   var boxId = document.getElementById(divId);
   message = boxId.getElementsByClassName("message")[0];
@@ -52,7 +54,7 @@ file.addEventListener('change', (e) => {
   if (fileName.length > 12) {
     fileName = fileName.slice(0, 12) + '...';
   }
-  const fileNameAndSize = ` ${fileName}  ${fileSize}KB`;
+  const fileNameAndSize = ` ${fileName}  ${fileSize} KB`;
   document.querySelector('.file-name').textContent = fileNameAndSize;
 });
 
@@ -83,46 +85,6 @@ function checkParent(t, elm) {
   }
   return false;
 }
-
-const participantRaw = document.getElementById("participant");
-const titleRaw = document.getElementById("title");
-const organisationRaw = document.getElementById("organisation");
-const eventRaw = document.getElementById("event");
-const nameRaw = document.getElementById("name");
-const designationRaw = document.getElementById("designation");
-const layoutRaw = document.getElementById("layout");
-const submitBtn = document.getElementById("submitBtn");
-const { PDFDocument, rgb, degrees } = PDFLib;
-
-const capitalize = (str, lower = false) =>
-  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
-    match.toUpperCase()
-  );
-
-submitBtn.addEventListener("click", () => {
-  const participant = capitalize(participantRaw.value);
-  const title = (titleRaw.value).toUpperCase();
-  const organisation = (organisationRaw.value).toUpperCase();
-  const event = eventRaw.value;
-  const name = capitalize(nameRaw.value);
-  const designation = designationRaw.value;
-  var layout = layoutRaw.value;
-  if (layout === null || layout === '' || layout > 24 || layout < 1 || (isNaN(layout))) {
-    layout = Math.floor((Math.random() * 24) + 1);
-  }
-  const printPDF = generatePDF(participant, title, organisation, event, "asset/sign.png", name, designation, layout, 1);
-  printPDF.then(
-    function (value) {
-      if (value) {
-        openClose("successBox", "Certificates generated successfully from .xlsx", "Liked the project? Star the repo on GitHub , that would really motivate me .Collaborate to create some more awesome open-source projects");
-      } else {
-        openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
-      }
-    },
-    function (error) { console.log(error); }
-  );
-
-});
 
 const generatePDF = async (participant, title, organisation, event, sign, name, designation, layout, serial) => {
 
@@ -222,7 +184,7 @@ const generatePDF = async (participant, title, organisation, event, sign, name, 
       size: smallTextSize,
     });
 
-    var filename = "Cert_" + participant + "_" + serial + ".pdf";
+    var filename =  participant + "_" + serial + "_" +  String(Date.now()) + ".pdf";
     const pdfBytes = await pdfDoc.save();
     var file = new File(
       [pdfBytes],
@@ -231,7 +193,8 @@ const generatePDF = async (participant, title, organisation, event, sign, name, 
         type: "application/pdf;charset=utf-8",
       }
     );
-    saveAs(file);
+
+    zip.file(filename, file);
     return true;
   }
   catch (err) {
@@ -239,3 +202,128 @@ const generatePDF = async (participant, title, organisation, event, sign, name, 
     return false;
   }
 };
+
+
+window.addEventListener("load", function () {
+  document.getElementById("upload").addEventListener("click", function () {
+    var fileUpload = document.getElementById("file");
+    if (fileUpload.value === null || fileUpload.value === '') {
+      openClose("alertBox", "No file selected", "Please upload a valid .xlsx/.xls file");
+      return;
+    }
+    var regex = /.+\.(xlsx|xls)$/i;
+    if (regex.test(fileUpload.value.toLowerCase())) {
+      try {
+        (typeof (FileReader) != "undefined")
+        var reader = new FileReader();
+        if (reader.readAsBinaryString) {
+          reader.onload = function (e) {
+            ProcessExcel(e.target.result);
+          };
+          reader.readAsBinaryString(fileUpload.files[0]);
+        } else {
+          reader.onload = function (e) {
+            var data = "";
+            var bytes = new Uint8Array(e.target.result);
+            for (var i = 0; i < bytes.byteLength; i++) {
+              data += String.fromCharCode(bytes[i]);
+            }
+            ProcessExcel(data);
+          };
+          reader.readAsArrayBuffer(fileUpload.files[0]);
+        }
+      } catch (err) {
+        openClose("alertBox", "Browser Not Supported", "Please update/ change your browser");
+      }
+    } else {
+      openClose("alertBox", "Error occured while uploading xlsx", "Please upload a valid file or try renaming the file");
+    }
+
+    function ProcessExcel(data) {
+      try {
+        var workbook = XLSX.read(data, {
+          type: 'binary'
+        });
+        var firstSheet = workbook.SheetNames[0];
+        var printPDFs = false;
+        var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
+        console.log(excelRows);
+        for (var i = 0; i < excelRows.length; i++) {
+          printPDFs = generatePDF(excelRows[i].Participant, excelRows[i].Title,
+            excelRows[i].Organisation, excelRows[i].Event, excelRows[i].Sign, excelRows[i].Name,
+            excelRows[i].Designation, excelRows[i].Layout, i);
+        }
+
+        printPDFs.then(
+          function (value) {
+            if (value) {
+              zipPDF(zip);
+              openClose("successBox", "Certificates generated successfully from .xlsx", "Liked the project? Star the repo on GitHub.");
+            } else {
+              openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
+            }
+          },
+          function (error) { console.log(error);
+            openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
+           }
+        );
+
+      }
+      catch (err) {
+        console.log(err);
+        openClose("alertBox", "Error file parsing xlsx", "Incorrect data enteries were found. Please take a look at the  sample.xlsx and fill up the data accordingly");
+      }
+
+    };
+  })
+})
+
+const participantRaw = document.getElementById("participant");
+const titleRaw = document.getElementById("title");
+const organisationRaw = document.getElementById("organisation");
+const eventRaw = document.getElementById("event");
+const nameRaw = document.getElementById("name");
+const designationRaw = document.getElementById("designation");
+const layoutRaw = document.getElementById("layout");
+const submitBtn = document.getElementById("submitBtn");
+const { PDFDocument, rgb, degrees } = PDFLib;
+
+const capitalize = (str, lower = false) =>
+  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+    match.toUpperCase()
+  );
+
+submitBtn.addEventListener("click", () => {
+  const participant = capitalize(participantRaw.value);
+  const title = capitalize(titleRaw.value);
+  const organisation = capitalize(organisationRaw.value);
+  const event = eventRaw.value;
+  const name = capitalize(nameRaw.value);
+  const designation = designationRaw.value;
+  var layout = layoutRaw.value;
+  if (layout === null || layout === '' || layout > 24 || layout < 1 || (isNaN(layout))) {
+    layout = Math.floor((Math.random() * 24) + 1);
+  }
+  const printPDF = generatePDF(participant, title, organisation, event, "asset/sign.png", name, designation, layout, 1);
+  printPDF.then(
+    function (value) {
+      if (value) {
+        zipPDF(zip);
+        openClose("successBox", "Certificate generated successfully via html form", "Liked the project? Star the repo on GitHub , that would really motivate me.");
+      } else {
+        openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
+      }
+    },
+    function (error) { console.log(error); 
+      openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
+    }
+  );
+
+});
+
+function zipPDF(zip){
+zip.generateAsync({type:"blob"})
+.then(function(content) {
+    saveAs(content, "bulky_" + Date.now() +  ".zip");
+});
+}

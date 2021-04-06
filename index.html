@@ -2,107 +2,6 @@
 <html lang="en">
 
 <head>
-  <style>
-    .image1 {
-      content: url("asset/sample_result/1.png")
-    }
-
-    .image2 {
-      content: url("asset/sample_result/2.png")
-    }
-
-    .image2 {
-      content: url("asset/sample_result/2.png")
-    }
-
-    .image3 {
-      content: url("asset/sample_result/3.png")
-    }
-
-    .image4 {
-      content: url("asset/sample_result/4.png")
-    }
-
-    .image5 {
-      content: url("asset/sample_result/5.png")
-    }
-
-    .image6 {
-      content: url("asset/sample_result/6.png")
-    }
-
-    .image7 {
-      content: url("asset/sample_result/7.png")
-    }
-
-    .image8 {
-      content: url("asset/sample_result/8.png")
-    }
-
-    .image9 {
-      content: url("asset/sample_result/9.png")
-    }
-
-    .image10 {
-      content: url("asset/sample_result/10.png")
-    }
-
-    .image11 {
-      content: url("asset/sample_result/11.png")
-    }
-
-    .image12 {
-      content: url("asset/sample_result/12.png")
-    }
-
-    .image13 {
-      content: url("asset/sample_result/13.png")
-    }
-
-    .image14 {
-      content: url("asset/sample_result/14.png")
-    }
-
-    .image15 {
-      content: url("asset/sample_result/15.png")
-    }
-
-    .image16 {
-      content: url("asset/sample_result/16.png")
-    }
-
-    .image17 {
-      content: url("asset/sample_result/17.png")
-    }
-
-    .image18 {
-      content: url("asset/sample_result/18.png")
-    }
-
-    .image19 {
-      content: url("asset/sample_result/19.png")
-    }
-
-    .image20 {
-      content: url("asset/sample_result/20.png")
-    }
-
-    .image21 {
-      content: url("asset/sample_result/21.png")
-    }
-
-    .image22 {
-      content: url("asset/sample_result/22.png")
-    }
-
-    .image23 {
-      content: url("asset/sample_result/23.png")
-    }
-
-    .image24 {
-      content: url("asset/sample_result/24.png")
-    }
-  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -131,6 +30,7 @@
   <link href="asset/css/style.css" rel="stylesheet" />
   <link href="asset/css/tailwind.min.css" rel="stylesheet" />
   <link href="asset/css/custom-forms.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="asset/js/jszip.min.js"></script>
 </head>
 
 <body class="leading-relaxed tracking-wide flex flex-col">
@@ -138,11 +38,11 @@
     <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
 
-          <div class="pl-4 flex items-center">
-            <a class="hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
-              <img class="w-24 md:w-36" src="asset/img/logo.png" alt="BulkyLogo" />
-            </a>
-          </div>
+        <div class="pl-4 flex items-center">
+          <a class="hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
+            <img class="w-24 md:w-36" src="asset/img/logo.png" alt="BulkyLogo" />
+          </a>
+        </div>
 
         <div class="block lg:hidden pr-4">
           <button id="nav-toggle"
@@ -192,7 +92,7 @@
             <form action="javascript:void(0);">
               <div class="flex items-center font-extrabold justify-center mt-4">
                 <div class="file-input mb-12">
-                  <input type="file" id="file" accept=".xlsx, .xls" class="file" >
+                  <input type="file" id="file" accept=".xlsx, .xls" class="file">
                   <label for="file">
                     Upload XLSX File
                     <p class="file-name text-center"></p>
@@ -320,7 +220,7 @@
   <section>
     <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
       <h2 class="w-full my-2 text-2xl lg:text-3xl font-black leading-tight text-center text-gray-800">
-      Single Form
+        Single Form
       </h2>
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -503,9 +403,9 @@
   </footer>
 
   <dialog id="helpModal" class=" w-11/12 md:w-1/2 p-5  bg-white rounded-md ">
-    <div class="flex flex-col w-full  ">
-      <div class="flex w-full  =">
-        <div class="flex w-10/12  py-3 justify-center items-center text-2xl font-bold">
+    <div class="flex flex-col w-full">
+      <div class="flex w-full">
+        <div class="flex w-10/12 ml-5  py-3 justify-center items-center text-2xl font-bold">
           How it works
         </div>
         <div onclick="document.getElementById('helpModal').close();" class="flex w-1/12  justify-center cursor-pointer">
@@ -530,12 +430,16 @@
       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div class="sm:flex sm:items-start">
-              <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              <div
+                class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -549,7 +453,8 @@
             </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button onclick="openClose('alertBox', 'Closing Dialog', 'Exiting...')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+            <button onclick="openClose('alertBox', 'Closing Dialog', 'Exiting...')" type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
               Close
             </button>
           </div>
@@ -561,9 +466,9 @@
   <alert id="successBox" style="display: none;">
     <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-  
+
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-  
+
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden
          shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
@@ -571,8 +476,11 @@
             <div class="sm:flex sm:items-start">
               <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full
                bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-               <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-width="2" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.393 7.5l-5.643 5.784-2.644-2.506-1.856 1.858 4.5 4.364 7.5-7.643-1.857-1.857z"/></svg>
+                <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-width="2"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.393 7.5l-5.643 5.784-2.644-2.506-1.856 1.858 4.5 4.364 7.5-7.643-1.857-1.857z" />
+                </svg>
               </div>
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <h3 class="modalTitle text-lg leading-6 font-medium text-gray-900">
@@ -585,7 +493,8 @@
             </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button onclick="openClose('successBox', 'Closing Dialog', 'Exiting...')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+            <button onclick="openClose('successBox', 'Closing Dialog', 'Exiting...')" type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
               Close
             </button>
           </div>
@@ -601,7 +510,7 @@
         .catch(err => console.log('service worker not registered', err));
     }
   </script>
-  
+
   <script src="asset/js/pdf-lib@1.4.0"></script>
   <script src="asset/js/fontkit@0.0.4"></script>
   <script src="asset/js/FileSaver.js"></script>
@@ -609,5 +518,4 @@
   <script src="asset/js/parse.js"></script>
   <script src="asset/js/xlsx.full.min.js"></script>
 </body>
-
 </html>

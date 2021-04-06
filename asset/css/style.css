@@ -1,5 +1,3 @@
-@import url("https://rsms.me/inter/inter.css");
-
 dialog[open] {
   animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
 }
@@ -32,9 +30,7 @@ dialog[open] {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
       -ms-overflow-style: none;
-      /* IE and Edge */
       scrollbar-width: none;
-      /* Firefox */
     }
 
     .gradient {
@@ -46,12 +42,10 @@ dialog[open] {
       background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
     }
 
-    /* RED BORDER ON INVALID INPUT */
     .check input:invalid {
       border-color: red;
     }
 
-    /* FLOATING LABEL */
     .label-floating input:not(:placeholder-shown),
     .label-floating textarea:not(:placeholder-shown) {
       padding-top: 1.4rem;
@@ -114,4 +108,104 @@ dialog[open] {
       left: 10px;
       font-size: 0.85rem;
       color: #555;
+    }
+
+    .image1 {
+      content: url("../sample_result/1.png")
+    }
+
+    .image2 {
+      content: url("../sample_result/2.png")
+    }
+
+    .image2 {
+      content: url("../sample_result/2.png")
+    }
+
+    .image3 {
+      content: url("../sample_result/3.png")
+    }
+
+    .image4 {
+      content: url("../sample_result/4.png")
+    }
+
+    .image5 {
+      content: url("../sample_result/5.png")
+    }
+
+    .image6 {
+      content: url("../sample_result/6.png")
+    }
+
+    .image7 {
+      content: url("../sample_result/7.png")
+    }
+
+    .image8 {
+      content: url("../sample_result/8.png")
+    }
+
+    .image9 {
+      content: url("../sample_result/9.png")
+    }
+
+    .image10 {
+      content: url("../sample_result/10.png")
+    }
+
+    .image11 {
+      content: url("../sample_result/11.png")
+    }
+
+    .image12 {
+      content: url("../sample_result/12.png")
+    }
+
+    .image13 {
+      content: url("../sample_result/13.png")
+    }
+
+    .image14 {
+      content: url("../sample_result/14.png")
+    }
+
+    .image15 {
+      content: url("../sample_result/15.png")
+    }
+
+    .image16 {
+      content: url("../sample_result/16.png")
+    }
+
+    .image17 {
+      content: url("../sample_result/17.png")
+    }
+
+    .image18 {
+      content: url("../sample_result/18.png")
+    }
+
+    .image19 {
+      content: url("../sample_result/19.png")
+    }
+
+    .image20 {
+      content: url("../sample_result/20.png")
+    }
+
+    .image21 {
+      content: url("../sample_result/21.png")
+    }
+
+    .image22 {
+      content: url("../sample_result/22.png")
+    }
+
+    .image23 {
+      content: url("../sample_result/23.png")
+    }
+
+    .image24 {
+      content: url("../sample_result/24.png")
     }
