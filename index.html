@@ -192,19 +192,16 @@
             <form action="javascript:void(0);">
               <div class="flex items-center font-extrabold justify-center mt-4">
                 <div class="file-input mb-12">
-                  <input type="file" id="file" accept=".xlsx, .xls" class="file" required />
+                  <input type="file" id="file" accept=".xlsx, .xls" class="file" >
                   <label for="file">
                     Upload XLSX File
                     <p class="file-name text-center"></p>
                   </label>
                 </div>
-
               </div>
-
-              <button
+              <input
                 class="mx-auto gradient2 lg:mx-0 hover:underline text-black font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow"
-                type="submit" id="upload">Download</button>
-
+                type="submit" value="Download" id="upload">
             </form>
           </div>
           <a href="#demoForm"
@@ -604,13 +601,13 @@
         .catch(err => console.log('service worker not registered', err));
     }
   </script>
-
+  
   <script src="asset/js/pdf-lib@1.4.0"></script>
   <script src="asset/js/fontkit@0.0.4"></script>
   <script src="asset/js/FileSaver.js"></script>
   <script src="asset/js/index.js"></script>
   <script src="asset/js/parse.js"></script>
-  <script src="asset/js/xlsx.full.min.js"></script>>
+  <script src="asset/js/xlsx.full.min.js"></script>
 </body>
 
 </html>

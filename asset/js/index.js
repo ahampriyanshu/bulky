@@ -2,16 +2,13 @@ function openClose(divId, header, msg) {
   var boxId = document.getElementById(divId);
   message = boxId.getElementsByClassName("message")[0];
   title = boxId.getElementsByClassName("modalTitle")[0];
-  console.log(message, title);
   message.innerHTML = msg;
   title.innerHTML = header;
-
   if (boxId.style.display === "none") {
     boxId.style.display = "block";
   } else {
     boxId.style.display = "none";
   }
-
 }
 
 var slideIndex = 1;
@@ -50,8 +47,11 @@ function showSlides(n) {
 const file = document.querySelector('#file');
 file.addEventListener('change', (e) => {
   const [file] = e.target.files;
-  const { name: fileName, size } = file;
+  var { name: fileName, size } = file;
   const fileSize = (size / 1000).toFixed(2);
+  if (fileName.length > 12) {
+    fileName = fileName.slice(0, 12) + '...';
+  }
   const fileNameAndSize = ` ${fileName}  ${fileSize}KB`;
   document.querySelector('.file-name').textContent = fileNameAndSize;
 });
@@ -84,7 +84,6 @@ function checkParent(t, elm) {
   return false;
 }
 
-
 const participantRaw = document.getElementById("participant");
 const titleRaw = document.getElementById("title");
 const organisationRaw = document.getElementById("organisation");
@@ -107,17 +106,30 @@ submitBtn.addEventListener("click", () => {
   const event = eventRaw.value;
   const name = capitalize(nameRaw.value);
   const designation = designationRaw.value;
-  const layout = layoutRaw.value;
-  if (generatePDF(participant, title, organisation, event, "asset/sign.png", name, designation, layout, 1)) { openClose("successBox", "Certificate generated successfully", "Liked the project? Star the repo on GitHub , that would really motivate me .Collaborate to create some more awesome open-source projects"); }
+  var layout = layoutRaw.value;
+  if (layout === null || layout === '' || layout > 24 || layout < 1 || (isNaN(layout))) {
+    layout = Math.floor((Math.random() * 24) + 1);
+  }
+  const printPDF = generatePDF(participant, title, organisation, event, "asset/sign.png", name, designation, layout, 1);
+  printPDF.then(
+    function (value) {
+      if (value) {
+        openClose("successBox", "Certificates generated successfully from .xlsx", "Liked the project? Star the repo on GitHub , that would really motivate me .Collaborate to create some more awesome open-source projects");
+      } else {
+        openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
+      }
+    },
+    function (error) { console.log(error); }
+  );
+
 });
 
 const generatePDF = async (participant, title, organisation, event, sign, name, designation, layout, serial) => {
 
   try {
 
-
-    if (layout === null || layout === '' || layout > 24 || layout < 1) {
-      layout = Math.floor((Math.random() * 24) + 1);
+    if (layout === null || layout === '' || layout > 24 || layout < 1 || (isNaN(layout))) {
+      throw "Invalid Layout Number";
     }
 
     if (sign === null || sign === '') {
@@ -224,7 +236,6 @@ const generatePDF = async (participant, title, organisation, event, sign, name, 
   }
   catch (err) {
     console.log(err);
-    openClose("alertBox", "Error occured while creating PDF", "Incorrect data enteries were found. Please take a look at the sampe.xlxs and fill up the data accordingly");
     return false;
   }
 };
