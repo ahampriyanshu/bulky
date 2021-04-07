@@ -29,3 +29,4 @@
 * [tailwindcss](https://tailwindcss.com/)
 * [tailwindcss](https://tailwindcss.com/)
 * [xlsx.js](https://github.com/SheetJS/sheetjs)
+* [jszip](https://stuk.github.io/jszip/)

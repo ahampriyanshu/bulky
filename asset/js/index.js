@@ -98,7 +98,7 @@ const generatePDF = async (participant, title, organisation, event, sign, name, 
       sign = "asset/sign.png";
     }
 
-    const layoutPath = "asset/sample_layout/layout_" + parseInt(layout) + ".pdf"
+    const layoutPath = "asset/layout/layout_" + parseInt(layout) + ".pdf"
     const existingPdfBytes = await fetch(layoutPath).then((res) =>
       res.arrayBuffer()
     );
