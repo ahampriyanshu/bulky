@@ -34,16 +34,15 @@
 </head>
 
 <body class="leading-relaxed tracking-wide flex flex-col">
+
   <upper class="gradient">
     <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
-
         <div class="pl-4 flex items-center">
           <a class="hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
             <img class="w-24 md:w-36" src="asset/img/logo.png" alt="BulkyLogo" />
           </a>
         </div>
-
         <div class="block lg:hidden pr-4">
           <button id="nav-toggle"
             class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none">
@@ -53,7 +52,6 @@
             </svg>
           </button>
         </div>
-
         <div
           class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
           id="nav-content">
@@ -112,108 +110,16 @@
     </section>
   </upper>
 
-  <section class="mx-auto max-w-2xl">
+  <section class="mx-auto max-w-2xl mt-12">
 
-    <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
-      <h2 class="w-full my-2 text-2xl lg:text-3xl font-black leading-tight text-center text-gray-800">
-        Sample Layouts
-      </h2>
-      <div class="w-full mb-4">
-        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-      </div>
-    </div>
-
-    <div class="shadow-2xl relative">
-      <!-- large image on slides -->
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(1)" alt="Sample Layout 1" class="description image1 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(2)" alt="Sample Layout 2" class="description image2 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(3)" alt="Sample Layout 3" class="description image3 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(4)" alt="Sample Layout 4" class="description image4 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(5)" alt="Sample Layout 5" class="description image5 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(6)" alt="Sample Layout 6" class="description image6 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(7)" alt="Sample Layout 7" class="description image7 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(8)" alt="Sample Layout 8" class="description image8 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(9)" alt="Sample Layout 9" class="description image9 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(10)" alt="Sample Layout 10" class="description image10 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(11)" alt="Sample Layout 11" class="description image11 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(12)" alt="Sample Layout 12" class="description image12 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(13)" alt="Sample Layout 13" class="description image13 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(14)" alt="Sample Layout 14" class="description image14 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(15)" alt="Sample Layout 15" class="description image15 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(16)" alt="Sample Layout 16" class="description image16 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(17)" alt="Sample Layout 17" class="description image17 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(18)" alt="Sample Layout 18" class="description image18 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(19)" alt="Sample Layout 19" class="description image19 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(20)" alt="Sample Layout 20" class="description image20 w-full object-cover" />
-      </div>
-
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(21)" alt="Sample Layout 21" class="description image21 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(22)" alt="Sample Layout 22" class="description image22 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(23)" alt="Sample Layout 23" class="description image23 w-full object-cover" />
-      </div>
-      <div class="mySlides hidden">
-        <img onclick="currentSlide(24)" alt="Sample Layout 24" class="description image24 w-full object-cover" />
-      </div>
-
-      <!-- butttons -->
+    <div id="slidesDiv" class="shadow-2xl relative">
       <a class="absolute left-0 inset-y-0 flex items-center px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
         onclick="plusSlides(-1)">❮</a>
       <a class="absolute right-0 inset-y-0 flex items-center px-4 text-black hover:text-gray-800 cursor-pointer text-3xl font-extrabold"
         onclick="plusSlides(1)">❯</a>
-
       <div class="text-center text-white font-light tracking-wider bg-gray-800 py-2">
         <p id="caption"></p>
       </div>
-
     </div>
   </section>
 
@@ -232,10 +138,10 @@
         <div class="relative w-full appearance-none label-floating">
           <input
             class="name tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-            name="participant" id="participant" type="text" placeholder="Name of the participant" required>
+            name="participant" id="participant" type="text" placeholder="Name of the Participant" required>
           <label for="participant"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Jesse Pinkman
+            Name of the Participant
           </label>
         </div>
       </div>
@@ -259,7 +165,7 @@
             name="organisation" id="organisation" type="text" placeholder="Name of the Organisation" required>
           <label for="organisation"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            NITI Aayog
+            Name of the Organisation
           </label>
         </div>
       </div>
@@ -283,7 +189,7 @@
             name="name" id="name" type="text" placeholder="Name of the Organiser" required>
           <label for="name"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Walter White
+            Name of the Organiser
           </label>
         </div>
       </div>
@@ -295,7 +201,7 @@
             name="designation" id="designation" type="text" placeholder="Designation of the Organiser" required>
           <label for="designation"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Founder, Some Organisation
+            Designation of the Organiser
           </label>
         </div>
       </div>
@@ -307,7 +213,7 @@
             name="layout" id="layout" type="number" placeholder="Enter layout number" required>
           <label for="layout"
             class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
-            Enter between 1-24
+            Enter between 1-38
           </label>
         </div>
       </div>
@@ -466,9 +372,7 @@
   <alert id="successBox" style="display: none;">
     <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden
          shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
@@ -502,7 +406,6 @@
       </div>
     </div>
   </alert>
-
   <script type="text/javascript">
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -510,12 +413,11 @@
         .catch(err => console.log('service worker not registered', err));
     }
   </script>
-
   <script src="asset/js/pdf-lib@1.4.0"></script>
   <script src="asset/js/fontkit@0.0.4"></script>
   <script src="asset/js/FileSaver.js"></script>
-  <script src="asset/js/index.js"></script>
-  <script src="asset/js/parse.js"></script>
   <script src="asset/js/xlsx.full.min.js"></script>
+  <script src="asset/js/index.js"></script>
 </body>
+
 </html>
