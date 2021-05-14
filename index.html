@@ -57,21 +57,16 @@
           id="nav-content">
           <ul class="list-reset lg:flex justify-end flex-1 items-center">
             <li class="mr-3">
-              <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="index.html">Home</a>
-            </li>
-            <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+              <a class="inline-block py-2 px-4 text-black font-bold no-underline"
                 href="https://github.com/ahampriyanshu/bulky/README.md">About</a>
             </li>
-            <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="https://ahampriyanshu.github.io/">Contact</a>
+            <li class="mr-3 mt-3 md:mt-0">
+              <a href="https://github.com/ahampriyanshu/bulky"
+                class="mx-auto gradient2 lg:mx-0 hover:underline text-gray-800 font-extrabold rounded py-4 px-8 shadow">
+                GitHub
+              </a>
             </li>
           </ul>
-          <a href="https://github.com/ahampriyanshu/bulky" id="navAction"
-            class="mx-auto gradient2 lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow">
-            GitHub
-          </a>
         </div>
       </div>
     </nav>
@@ -83,10 +78,10 @@
             Create high quality PDF certificate in bulk
           </h1>
           <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
-            <button class="hover:underline text-gray-600" onclick="document.getElementById('helpModal').showModal()"
-              id="btn">Click here</button> to know how this works
+            <button class="hover:underline text-gray-600" onclick="openModal()" id="btn">Click here</button> to know how
+            this works
           </p>
-          <div class="container center" id="frm">
+          <div class="container center">
             <form action="javascript:void(0);">
               <div class="flex items-center font-extrabold justify-center mt-4">
                 <div class="file-input mb-12">
@@ -126,7 +121,7 @@
   <section>
     <div class="container mx-auto flex flex-wrap items-center justify-between mt-12">
       <h2 class="w-full my-2 text-2xl lg:text-3xl font-black leading-tight text-center text-gray-800">
-        Single Form
+        Create Single PDF
       </h2>
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -308,29 +303,6 @@
     </div>
   </footer>
 
-  <dialog id="helpModal" class=" w-11/12 md:w-1/2 p-5  bg-white rounded-md ">
-    <div class="flex flex-col w-full">
-      <div class="flex w-full">
-        <div class="flex w-10/12 ml-5  py-3 justify-center items-center text-2xl font-bold">
-          How it works
-        </div>
-        <div onclick="document.getElementById('helpModal').close();" class="flex w-1/12  justify-center cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </div>
-      </div>
-      <div class="w-full text-center  py-10 px-2  bg-gray-200 rounded text-gray-500">
-        <p> <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.xlsx">Click here</a> to download
-          sample .xlsx file => Enter data in correct sequence => Upload .xlsx => Download .pdf</p>
-        <p>Or fill up <a class="hover:underline text-gray-800 font-extrabold"
-            href="https://bulky.vercel.app/#demoForm">this</a> form to create single pdf instead.</p>
-      </div>
-    </div>
-  </dialog>
-
   <alert id="alertBox" style="display: none;">
     <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -406,18 +378,38 @@
       </div>
     </div>
   </alert>
-  <script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('service worker registered', reg))
-        .catch(err => console.log('service worker not registered', err));
-    }
-  </script>
+
+  <div
+    class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+    style="background: rgba(0,0,0,.7); display: none;">
+    <div
+      class="border border-yellow-555 shadow-lg modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div class="modal-content py-4 text-left px-6">
+        <div class="flex text-black-555 justify-between items-center pb-3">
+          <p class="font-bold text-2xl md:text-3xl p-2 md:p-4">How it works</p>
+          <div class="modal-close cursor-pointer z-50">
+            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+              viewBox="0 0 18 18">
+              <path
+                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="w-full text-center py-10 px-2  bg-gray-200 rounded text-gray-500">
+          <p> <a class="hover:underline text-gray-800 font-extrabold" href="asset/sample.xlsx">Click here</a> to
+            download
+            sample .xlsx file => Enter data in correct sequence => Upload .xlsx => Download .pdf</p>
+          <p>Or fill up <a class="modal-close hover:underline text-gray-800 font-extrabold" href="#demoForm">this</a>
+            form to create single pdf instead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="asset/js/pdf-lib@1.4.0"></script>
   <script src="asset/js/fontkit@0.0.4"></script>
   <script src="asset/js/FileSaver.js"></script>
   <script src="asset/js/xlsx.full.min.js"></script>
   <script src="asset/js/index.js"></script>
 </body>
-
 </html>
